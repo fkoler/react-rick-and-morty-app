@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
+import styles from './Pagination.module.scss';
 
-const Pagination = ({ info, pageNumber, setPageNumber }) => {  
+const Pagination = ({ info, pageNumber, setPageNumber }) => {
   // console.log(info.pages);
   // console.log(pageNumber);
   return <ReactPaginate
-    containerClassName="pagination" 
+    containerClassName="pagination"
     className="pagination justify-content-center gap-4 my-4"
     forcePage={pageNumber === 1 ? 0 : pageNumber - 1}
     breakLabel=". . ."
     nextLabel="Next"
     previousLabel="Prev"
-    nextClassName="btn"
-    previousClassName="btn"
+    nextClassName={`${styles.btn} btn border border-primary border-1`}
+    previousClassName={`${styles.btn} btn border border-primary border-1`}
     pageClassName="page-item"
     pageLinkClassName="page-link"
     activeClassName="active"

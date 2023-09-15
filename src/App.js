@@ -10,7 +10,14 @@ import Search from './components/Search/Search';
 function App() {
 
   let [pageNumber, setPageNumber] = useState(1);
+
   let [search, setSearch] = useState('');
+
+  let [status, setStatus] = useState('');
+
+  let [gender, setGender] = useState('');
+
+  let [species, setSpecies] = useState('');
 
   // console.log(pageNumber);
   let [fetchedData, updateFetchedData] = useState([]);
@@ -18,17 +25,17 @@ function App() {
   let { info, results } = fetchedData;
 
   // console.log(results);
-  
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
 
-  useEffect(()=>{
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
-    (async function(){
+  useEffect(() => {
+
+    (async function () {
 
       let data = await fetch(api).then(res => res.json());
 
       // console.log(data.results);
-      updateFetchedData(data);      
+      updateFetchedData(data);
     })();
   }, [api]);
 
@@ -37,30 +44,35 @@ function App() {
     <div className="App">
 
       <h1 className="text-center rocksalt my-5">
-        Rick & Morty <span className="text-primary">Characters</span> 
+        Rick & Morty <span className="text-primary">Characters</span>
       </h1>
 
       <Search setPageNumber={setPageNumber} setSearch={setSearch} />
 
       <div className="container">
         <div className="row">
-          <div className="col-3">
-            <Filters />
-          </div>
+          <Filters
+            setGender={setGender}
+            setStatus={setStatus}
+            setPageNumber={setPageNumber}
+            setSpecies={setSpecies}
+          />
           <div className="col-8">
             <div className="row">
               <div className="row">
-                <Cards results={results}/>                
+                <Cards
+                  results={results}
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <Pagination 
-        info={info} 
-        pageNumber={pageNumber} 
-        setPageNumber={setPageNumber} 
+      <Pagination
+        info={info}
+        pageNumber={pageNumber}
+        setPageNumber={setPageNumber}
       />
     </div>
   );
