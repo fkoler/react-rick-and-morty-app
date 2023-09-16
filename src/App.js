@@ -6,8 +6,30 @@ import Filters from "./components/Filters/Filters";
 import Cards from "./components/Cards/Cards";
 import Pagination from './components/Pagination/Pagination';
 import Search from './components/Search/Search';
+import Navigation from './components/Navigation/Navigation';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Episodes from './Pages/Episodes';
+import Locations from './Pages/Locations';
 
 function App() {
+  return (
+
+    <Router>
+      <div className="App">
+        <Navigation />
+      </div>
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/episodes' element={<Episodes />} />
+        <Route path='/locations' element={<Locations />} />
+      </Routes>
+    </Router>
+  );
+};
+
+const Home = () => {
 
   let [pageNumber, setPageNumber] = useState(1);
 

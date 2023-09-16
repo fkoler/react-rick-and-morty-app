@@ -6,7 +6,7 @@ const Pagination = ({ info, pageNumber, setPageNumber }) => {
   // console.log(info.pages);
   // console.log(pageNumber);
   return <ReactPaginate
-    containerClassName="pagination"
+    // containerClassName="container"
     className="pagination justify-content-center gap-4 my-4"
     forcePage={pageNumber === 1 ? 0 : pageNumber - 1}
     breakLabel=". . ."
