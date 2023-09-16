@@ -55,7 +55,6 @@ const Home = () => {
     (async function () {
 
       let data = await fetch(api).then(res => res.json());
-
       // console.log(data.results);
       updateFetchedData(data);
     })();

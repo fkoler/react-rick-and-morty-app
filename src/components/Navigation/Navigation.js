@@ -27,8 +27,8 @@ const Navigation = () => {
                             }
                         `}
                     </style>
-                    <i class="fas fa-bars fw-bold text-primary open"></i>
-                    <i class="fas fa-times fw-bold text-primary close"></i>
+                    <i className="fas fa-bars fw-bold text-primary open"></i>
+                    <i className="fas fa-times fw-bold text-primary close"></i>
                 </button>
 
                 <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
