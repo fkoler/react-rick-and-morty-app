@@ -11,6 +11,7 @@ import Navigation from './components/Navigation/Navigation';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Episodes from './Pages/Episodes';
 import Locations from './Pages/Locations';
+import CardDetails from './components/Cards/CardDetails';
 
 function App() {
   return (
@@ -22,8 +23,13 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/:id' element={<CardDetails />} />
+
         <Route path='/episodes' element={<Episodes />} />
+        <Route path='/episodes/:id' element={<CardDetails />} />
+
         <Route path='/locations' element={<Locations />} />
+        <Route path='/locations/:id' element={<CardDetails />} />
       </Routes>
     </Router>
   );
@@ -82,6 +88,7 @@ const Home = () => {
             <div className="row">
               <div className="row">
                 <Cards
+                  page="/"
                   results={results}
                 />
               </div>
@@ -97,6 +104,6 @@ const Home = () => {
       />
     </div>
   );
-}
+};
 
 export default App;
