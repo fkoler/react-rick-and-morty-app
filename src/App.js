@@ -84,14 +84,12 @@ const Home = () => {
             setPageNumber={setPageNumber}
             setSpecies={setSpecies}
           />
-          <div className="col-8">
+          <div className="col-lg-8 col-12">
             <div className="row">
-              <div className="row">
-                <Cards
-                  page="/"
-                  results={results}
-                />
-              </div>
+              <Cards
+                page="/"
+                results={results}
+              />
             </div>
           </div>
         </div>

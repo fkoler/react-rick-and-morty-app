@@ -4,7 +4,7 @@ import '../../App.css';
 
 const Navigation = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-primary bg-body-primary mb-4">
+        <nav className="navbar navbar-expand-lg navbar-primary mb-4">
             <div className="container">
 
                 <button
