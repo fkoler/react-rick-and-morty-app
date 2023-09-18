@@ -25,7 +25,7 @@ const Cards = ({ results, page }) => {
               <div className="fs-4 fw-bold mb-4">{name}</div>
               <div className="">
                 <div className="fs-6">Last Location:</div>
-                <div className="fs-5">{location.name}</div>
+                <div className="fs-5">{location.name === 'unknown' ? 'Unknown' : location.name}</div>
               </div>
             </div>
           </div>

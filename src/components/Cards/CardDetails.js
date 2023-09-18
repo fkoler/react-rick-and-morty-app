@@ -50,7 +50,7 @@ const CardDetails = () => {
                     } else {
                         return (
                             <div className="badge bg-secondary fs-5">
-                                {status}
+                                {status === 'unknown' ? 'Unknown' : status}
                             </div>
                         );
                     }
@@ -58,19 +58,19 @@ const CardDetails = () => {
 
                 <div className="content fs-3">
                     <div className="">
-                        <span className="fw-bold">Gender:</span> {gender}
+                        <span className="fw-bold">Gender:</span> {gender === 'unknown' ? 'Unknown' : gender}
                     </div>
                     <div className="">
-                        <span className="fw-bold">Species:</span> {species}
+                        <span className="fw-bold">Species:</span> {species === 'unknown' ? 'Unknown' : species}
                     </div>
                     <div className="">
                         <span className="fw-bold">Type:</span> {type === "" ? 'Unknown' : type}
                     </div>
                     <div className="">
-                        <span className="fw-bold">Last Location:</span> {location?.name}
+                        <span className="fw-bold">Last Location:</span> {location?.name === 'unknown' ? 'Unknown' : location?.name}
                     </div>
                     <div className="">
-                        <span className="fw-bold">Origin from:</span> {origin?.name}
+                        <span className="fw-bold">Origin from:</span> {origin?.name === 'unknown' ? 'Unknown' : origin?.name}
                     </div>
                 </div>
 

@@ -41,7 +41,7 @@ const Locations = () => {
                     </span>
                 </h1>
                 <h4 className="text-center">
-                    Dimension: {dimension === '' ? "Unknown" : dimension}
+                    Dimension: {(dimension === '' || dimension === 'unknown') ? "Unknown" : dimension}
                 </h4>
                 <h5 className="text-center">
                     Type: {type === '' ? "Unknown" : type}
