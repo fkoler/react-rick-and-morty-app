@@ -54,7 +54,8 @@ const Pagination = ({ info, pageNumber, setPageNumber }) => {
         onPageChange={(data) => {
           setPageNumber(data.selected + 1);
         }}
-        pageCount={info?.pages}
+        // pageCount={info?.pages}
+        pageCount={42}
       />
     </>
   );

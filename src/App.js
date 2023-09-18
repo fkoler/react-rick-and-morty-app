@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
+
 import Filters from "./components/Filters/Filters";
 import Cards from "./components/Cards/Cards";
 import Pagination from './components/Pagination/Pagination';
@@ -13,25 +14,38 @@ import Episodes from './Pages/Episodes';
 import Locations from './Pages/Locations';
 import CardDetails from './components/Cards/CardDetails';
 
+import GlobalStyles from './styles/GlobalStyles';
+import { ThemeProvider } from 'styled-components';
+import ThemeContext from './contexts/ThemeContext';
+
 function App() {
+
+  const { theme } = useContext(ThemeContext);
+
   return (
+    <>
+      <ThemeProvider theme={{ theme }}>
 
-    <Router>
-      <div className="App">
-        <Navigation />
-      </div>
+        <GlobalStyles />
+        <Router>
+          <div className="App">
+            <Navigation />
+          </div>
 
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/:id' element={<CardDetails />} />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/:id' element={<CardDetails />} />
 
-        <Route path='/episodes' element={<Episodes />} />
-        <Route path='/episodes/:id' element={<CardDetails />} />
+            <Route path='/episodes' element={<Episodes />} />
+            <Route path='/episodes/:id' element={<CardDetails />} />
 
-        <Route path='/locations' element={<Locations />} />
-        <Route path='/locations/:id' element={<CardDetails />} />
-      </Routes>
-    </Router>
+            <Route path='/locations' element={<Locations />} />
+            <Route path='/locations/:id' element={<CardDetails />} />
+          </Routes>
+        </Router>
+
+      </ThemeProvider>
+    </>
   );
 };
 
