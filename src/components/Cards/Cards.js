@@ -56,7 +56,7 @@ const Cards = ({ results, page }) => {
         </Link>);
     });
   } else {
-    display = "No Characters Found \u00A0 ¯\\_(ツ)_/¯";
+    display = <div className='msg'>No Characters Found &nbsp; ¯\_(ツ)_/¯</div>;
   }
 
   return <>{display}</>;

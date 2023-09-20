@@ -44,11 +44,13 @@ const GlobalStyles = createGlobalStyle`
 
     
     ul.themeSwith {
-        /* display: flex;
-        align-items: center;
-        justify-content: center; */
         margin-bottom: 2px;
         padding-left: 10px;
+    }
+
+    div.msg {
+        text-align: center;
+        padding-right: 200px;
     }
 
     @media only screen and (max-width: 992px) {

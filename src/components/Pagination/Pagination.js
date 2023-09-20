@@ -16,6 +16,10 @@ const Pagination = ({ info, pageNumber, setPageNumber }) => {
     return () => window.removeEventListener('resize', updateDimension);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [pageNumber]);
+
   // console.log(info.pages);
   // console.log(pageNumber);
   return (
@@ -48,8 +52,8 @@ const Pagination = ({ info, pageNumber, setPageNumber }) => {
         previousClassName={`${styles.btn} prev btn border border-primary border-1`}
         pageClassName="page-item"
         pageLinkClassName="page-link"
-        marginPagesDisplayed={width < 576 ? 1 : 2}
-        pageRangeDisplayed={width < 576 ? 1 : 2}
+        marginPagesDisplayed={width < 576 ? 1 : 1 && width > 576 ? 2 : 2}
+        pageRangeDisplayed={width < 576 ? 2 : 1 && width > 576 ? 2 : 1}
         activeClassName="active"
         onPageChange={(data) => {
           setPageNumber(data.selected + 1);
