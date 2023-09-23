@@ -20,8 +20,8 @@ const Pagination = ({ info, pageNumber, setPageNumber }) => {
     window.scrollTo({ top: 0 })
   }, [pageNumber]);
 
-  // console.log(info.pages);
-  // console.log(pageNumber);
+  const pageCount = typeof info?.pages === 'number' && !isNaN(info.pages) ? Math.max(1, Math.ceil(info.pages)) : 1;
+
   return (
     <>
       <style jsx='true'>
@@ -44,7 +44,7 @@ const Pagination = ({ info, pageNumber, setPageNumber }) => {
       <ReactPaginate
         containerClassName="container"
         className="pagination justify-content-center gap-4 my-4"
-        forcePage={pageNumber === 1 ? 0 : pageNumber - 1}
+        forcePage={Math.min(pageNumber - 1, pageCount - 1)}
         breakLabel=". . ."
         nextLabel="Next"
         previousLabel="Prev"
@@ -58,17 +58,10 @@ const Pagination = ({ info, pageNumber, setPageNumber }) => {
         onPageChange={(data) => {
           setPageNumber(data.selected + 1);
         }}
-        pageCount={info?.pages}
-      // pageCount={42}
+        pageCount={pageCount}
       />
     </>
   );
 };
-
-//   return <div className='container d-flex justify-content-center gap-5 my-5'>
-//     <button onClick={prev} className="btn btn-primary">Prev</button>
-//     <button onClick={next} className="btn btn-primary">Next</button>
-//   </div>;
-// };
 
 export default Pagination;
