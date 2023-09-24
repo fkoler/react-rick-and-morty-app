@@ -17,7 +17,7 @@ const FilterBTN = ({ name, index, items, task, setPageNumber }) => {
 
             </style>
 
-            <div className="form-check">
+            <div className="form-check" id="check">
                 <input
                     onClick={() => {
                         setPageNumber(1);

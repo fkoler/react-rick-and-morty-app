@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
+import 'font-awesome/css/font-awesome.min.css';
 
 import Filters from "./components/Filters/Filters";
 import Cards from "./components/Cards/Cards";
@@ -17,8 +18,30 @@ import CardDetails from './components/Cards/CardDetails';
 import GlobalStyles from './styles/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 import ThemeContext from './contexts/ThemeContext';
+import { FaArrowUp } from 'react-icons/fa';
 
 function App() {
+
+  const [showButton, setShowButton] = useState(false);
+
+  const onScroll = () => {
+    let pixelsFromTop = window.scrollY;
+    let documentHeight = document.body.clientHeight;
+    let windowHeight = window.innerHeight;
+    let difference = documentHeight - windowHeight;
+    let percentage = (100 * pixelsFromTop) / difference;
+    document.getElementById("bar").style.width = `${percentage}%`;
+    window.scrollY > 500 ? setShowButton(true) : setShowButton(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  });
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   const { theme } = useContext(ThemeContext);
 
@@ -26,10 +49,21 @@ function App() {
     <>
       <ThemeProvider theme={{ theme }}>
 
+        <div className="container progress_wrapper">
+          <div className="container progress_bar" id="bar"></div>
+        </div>
+
         <GlobalStyles />
         <Router>
+
           <div className="App">
             <Navigation />
+          </div>
+          <div>
+            <FaArrowUp
+              className={showButton ? 'showButton' : 'hidden'}
+              onClick={scrollToTop}
+            />
           </div>
 
           <Routes>
@@ -43,7 +77,6 @@ function App() {
             <Route path='/locations/:id' element={<CardDetails />} />
           </Routes>
         </Router>
-
       </ThemeProvider>
     </>
   );
@@ -52,13 +85,9 @@ function App() {
 const Home = () => {
 
   let [pageNumber, setPageNumber] = useState(1);
-
   let [search, setSearch] = useState('');
-
   let [status, setStatus] = useState('');
-
   let [gender, setGender] = useState('');
-
   let [species, setSpecies] = useState('');
 
   // console.log(pageNumber);

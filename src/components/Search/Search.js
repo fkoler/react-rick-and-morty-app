@@ -11,6 +11,7 @@ const Search = ({ setSearch, setPageNumber }) => {
       placeholder='Search for Characters'
       type="text"
       className={styles.input}
+      id="textInput"
     />
     <button onClick={
       e => {
