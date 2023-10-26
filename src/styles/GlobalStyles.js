@@ -74,7 +74,7 @@ const GlobalStyles = createGlobalStyle`
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        max-width: 100vw;
         z-index: 1;
         opacity: 0.9;        
     }

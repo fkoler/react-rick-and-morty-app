@@ -50,7 +50,7 @@ function App() {
       <ThemeProvider theme={{ theme }}>
 
         <div className="container progress_wrapper">
-          <div className="container progress_bar" id="bar"></div>
+          <div className="progress_bar" id="bar"></div>
         </div>
 
         <GlobalStyles />
