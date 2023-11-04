@@ -51,7 +51,16 @@ const GlobalStyles = createGlobalStyle`
 
     div.msg {
         text-align: center;
+        justify-content: center;
         padding-right: 200px;
+    }
+
+    @media (max-width: 992px) {
+        div.msg {
+            text-align: center;
+            justify-content: center;
+            padding: 0;            
+        }
     }
 
     @media only screen and (max-width: 992px) {
