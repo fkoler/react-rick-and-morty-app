@@ -1,11 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 import '@fontsource/poppins';
 import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
 
-import themeList from "../ThemeData/themeList";
+import themeList from '../ThemeData/themeList';
 
 const GlobalStyles = createGlobalStyle`
     :root {
@@ -20,8 +20,10 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-color: ${({ theme: { theme } }) => theme === themeList.light ? 'var(--whitesmoke)' : 'var(--gray)'};
-        color: ${({ theme: { theme } }) => theme === themeList.light ? 'var(--black)' : 'var(--whitesmoke)'};
+        background-color: ${({ theme: { theme } }) =>
+            theme === themeList.light ? 'var(--whitesmoke)' : 'var(--gray)'};
+        color: ${({ theme: { theme } }) =>
+            theme === themeList.light ? 'var(--black)' : 'var(--whitesmoke)'};
         transition: 300ms ease;
         font-family: 'Poppins', sans-serif;
     }
@@ -76,7 +78,10 @@ const GlobalStyles = createGlobalStyle`
     }
 
     .text-dark {
-        color: ${({ theme: { theme } }) => theme === themeList.light ? 'var(--black)' : 'var(--whitesmoke)'} !important;
+        color: ${({ theme: { theme } }) =>
+            theme === themeList.light
+                ? 'var(--black)'
+                : 'var(--whitesmoke)'} !important;
     }
 
     .progress_wrapper {

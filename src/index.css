@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
 body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .rocksalt {
-  font-family: 'Rock Salt', cursive;
-  ;
+    font-family: 'Rock Salt', cursive;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
